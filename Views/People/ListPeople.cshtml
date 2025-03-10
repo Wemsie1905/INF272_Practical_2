@@ -1,0 +1,27 @@
+﻿@model List<INF272_Practical_2.Models.PersonModel>
+
+<h2>List of People</h2>
+
+<table border="1">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Age</th>
+        <th>Living Status</th>
+        <th>Personal Page</th>
+    </tr>
+    @foreach (var person in Model)
+    {
+        <tr>
+            <td>@person.FirstName</td>
+            <td>@person.LastName</td>
+            <td>@person.Email</td>
+            <td>@person.Age</td>
+            <td>@(person.IsAlive ? "Alive" : "Not Alive")</td>
+            <td>
+                <a href="@Url.Content(person.myLink)" class="btn btn-primary">LINK</a>
+            </td>
+        </tr>
+    }
+</table>
